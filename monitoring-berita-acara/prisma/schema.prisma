@@ -5,9 +5,23 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-enum Role { INTERNAL ADMIN }
-enum StatusPoin { SUDAH_DILAKSANAKAN DALAM_PROSES BELUM_DILAKSANAKAN }
-enum PenanggungJawab { KEUANGAN_UMUM_LOGISTIK TEKNIS_PEMILU_HUKUM PERENCANAAN_DATA_INFORMASI PARTISIPASI_MASYARAKAT_SDM }
+enum Role {
+  INTERNAL
+  ADMIN
+}
+
+enum StatusPoin {
+  SUDAH_DILAKSANAKAN
+  DALAM_PROSES
+  BELUM_DILAKSANAKAN
+}
+
+enum PenanggungJawab {
+  KEUANGAN_UMUM_LOGISTIK
+  TEKNIS_PEMILU_HUKUM
+  PERENCANAAN_DATA_INFORMASI
+  PARTISIPASI_MASYARAKAT_SDM
+}
 model User {
   id String @id @default(cuid())
   name String
