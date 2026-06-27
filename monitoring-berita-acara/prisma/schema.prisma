@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+enum Role { INTERNAL ADMIN }
+enum StatusPoin { SUDAH_DILAKSANAKAN DALAM_PROSES BELUM_DILAKSANAKAN }
+enum PenanggungJawab { KEUANGAN_UMUM_LOGISTIK TEKNIS_PEMILU_HUKUM PERENCANAAN_DATA_INFORMASI PARTISIPASI_MASYARAKAT_SDM }
+model User {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  passwordHash String @map("password_hash")
+  role Role
+  beritaAcara BeritaAcara[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  @@map("users")
+}
+model BeritaAcara {
+  id String @id @default(cuid())
+  nomor String @unique
+  nama String
+  tanggal DateTime @db.Date
+  bulan Int
+  tahun Int
+  dokumenUrl String @map("dokumen_url")
+  deskripsi String?
+  createdById String @map("created_by")
+  createdBy User @relation(fields:[createdById],references:[id],onDelete:Restrict)
+  poinRencana PoinRencana[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  @@index([tahun,bulan])
+  @@index([tanggal])
+  @@map("berita_acara")
+}
+model PoinRencana {
+  id String @id @default(cuid())
+  beritaAcaraId String @map("berita_acara_id")
+  beritaAcara BeritaAcara @relation(fields:[beritaAcaraId],references:[id],onDelete:Cascade)
+  detailPoin String @map("detail_poin")
+  targetPelaksanaan DateTime @map("target_pelaksanaan") @db.Date
+  status StatusPoin @default(BELUM_DILAKSANAKAN)
+  penanggungJawab PenanggungJawab @map("penanggung_jawab")
+  indikatorOutput String @map("indikator_output")
+  catatan String?
+  evidence Evidence[]
+  riwayat RiwayatUpdate[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  @@index([beritaAcaraId])
+  @@index([status])
+  @@index([penanggungJawab])
+  @@index([targetPelaksanaan])
+  @@map("poin_rencana")
+}
+model Evidence {
+  id String @id @default(cuid())
+  poinRencanaId String @map("poin_rencana_id")
+  poinRencana PoinRencana @relation(fields:[poinRencanaId],references:[id],onDelete:Cascade)
+  judul String
+  evidenceUrl String @map("evidence_url")
+  keterangan String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  @@index([poinRencanaId])
+  @@map("evidence")
+}
+model RiwayatUpdate {
+  id String @id @default(cuid())
+  poinRencanaId String @map("poin_rencana_id")
+  poinRencana PoinRencana @relation(fields:[poinRencanaId],references:[id],onDelete:Cascade)
+  field String
+  nilaiLama String? @map("nilai_lama")
+  nilaiBaru String? @map("nilai_baru")
+  diubahOleh String @map("diubah_oleh")
+  createdAt DateTime @default(now()) @map("created_at")
+  @@index([poinRencanaId,createdAt])
+  @@map("riwayat_update")
+}

@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { Landmark } from "lucide-react";
+export function SiteHeader(){return <><header className="nav"><div className="container nav-inner"><Link href="/" className="brand"><span className="brand-mark"><Landmark size={20}/></span><span>KPU Kota Cirebon</span></Link><nav className="nav-links"><Link href="/">Dashboard</Link><Link href="/berita-acara">Berita Acara</Link><Link className="btn btn-primary" href="/login">Masuk internal</Link></nav></div></header></>}
+export function SiteFooter(){return <footer className="footer"><div className="container footer-grid"><div><strong>KPU Kota Cirebon</strong><p className="mt-2 max-w-xl text-sm">Transparansi tindak lanjut hasil pleno rutin dalam satu ruang monitoring yang mudah dipahami.</p></div><p className="text-sm">© 2026 KPU Kota Cirebon</p></div></footer>}
