@@ -1,5 +1,8 @@
 import { z } from "zod";
-export const loginSchema=z.object({email:z.email("Format email tidak valid"),password:z.string().min(8,"Password minimal 8 karakter")});
+export const loginSchema=z.object({
+  username:z.string().trim().toLowerCase().min(3,"Username minimal 3 karakter").max(30,"Username maksimal 30 karakter").regex(/^[a-z0-9._-]+$/,"Username hanya boleh berisi huruf kecil, angka, titik, garis bawah, atau tanda hubung"),
+  password:z.string().min(8,"Password minimal 8 karakter")
+});
 export const beritaSchema=z.object({
   nomor:z.string().trim().min(5,"Nomor berita acara wajib diisi"),
   nama:z.string().trim().min(5,"Nama berita acara wajib diisi"),
