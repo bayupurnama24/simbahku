@@ -47,10 +47,10 @@ Buka http://localhost:3000. Tanpa DATABASE_URL, aplikasi otomatis menampilkan da
 
 Seed membuat akun berikut:
 
-- Admin: admin@kpu-cirebon.go.id / Admin123!
-- Internal: internal@kpu-cirebon.go.id / Internal123!
+- Admin demo: username `admin` / password `Admin123!`
+- Internal demo: username `internal` / password `Internal123!`
 
-Ganti password akun seed sebelum production. Password disimpan sebagai hash bcrypt. Akun baru dapat dibuat melalui Prisma Studio (`npm run db:studio`) atau proses administrasi database.
+Untuk seed production, isi variabel `SEED_ADMIN_*` dan `SEED_INTERNAL_*` di file `.env` lokal. Login menggunakan username dan password; email tetap disimpan sebagai informasi profil. Password disimpan sebagai hash bcrypt dan tidak ditulis di source code.
 
 ## Environment
 
@@ -59,6 +59,12 @@ Ganti password akun seed sebelum production. Password disimpan sebagai hash bcry
 | DATABASE_URL | Connection string PostgreSQL |
 | AUTH_SECRET | Kunci penandatangan session JWT, minimal 32 karakter |
 | NEXT_PUBLIC_APP_URL | URL aplikasi, misalnya http://localhost:3000 |
+| SEED_ADMIN_USERNAME | Username admin saat menjalankan seed |
+| SEED_ADMIN_EMAIL | Email profil admin saat menjalankan seed |
+| SEED_ADMIN_PASSWORD | Password admin saat menjalankan seed |
+| SEED_INTERNAL_USERNAME | Username internal saat menjalankan seed |
+| SEED_INTERNAL_EMAIL | Email profil internal saat menjalankan seed |
+| SEED_INTERNAL_PASSWORD | Password internal saat menjalankan seed |
 
 ## Database
 
