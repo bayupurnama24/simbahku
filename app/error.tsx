@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({reset}:{reset:()=>void}){return <div className="grid min-h-[60vh] place-items-center p-8 text-center"><div><div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-2xl bg-red-50 text-2xl">!</div><h1 className="text-2xl font-black">Terjadi kendala</h1><p className="muted">Data belum dapat dimuat. Silakan coba kembali.</p><button className="btn btn-primary" onClick={reset}>Coba lagi</button></div></div>}

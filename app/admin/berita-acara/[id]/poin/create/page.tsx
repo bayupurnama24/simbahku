@@ -1,0 +1,2 @@
+import { PoinForm } from "@/components/record-forms";
+export default async function Page({params}:{params:Promise<{id:string}>}){const {id}=await params;return <><div className="page-head"><div><span className="eyebrow">Rencana kerja baru</span><h1 className="mt-2 text-3xl font-black">Tambah Poin Rencana</h1><p className="muted">Tentukan target, penanggung jawab, dan indikator output yang terukur.</p></div></div><PoinForm beritaAcaraId={id}/></>}

@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main className="grid min-h-screen place-items-center p-8 text-center"><div><span className="eyebrow">404</span><h1 className="mt-3 text-4xl font-black">Data tidak ditemukan</h1><p className="muted">Halaman atau berita acara yang Anda cari tidak tersedia.</p><Link className="btn btn-primary" href="/">Kembali ke dashboard</Link></div></main>}

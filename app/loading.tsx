@@ -1,0 +1,1 @@
+export default function Loading(){return <div className="container page"><div className="grid-stats">{Array.from({length:6}).map((_,i)=><div key={i} className="card h-28 animate-pulse bg-gray-100"/>)}</div><div className="card mt-5 h-96 animate-pulse bg-gray-100"/></div>}
