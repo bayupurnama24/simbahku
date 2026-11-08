@@ -28,6 +28,17 @@ export function MonitoringCharts({ items }: { items: BeritaAcaraData[] }) {
       to: STAT_THEME.belum.to,
       gradId: "pieBelum",
     },
+    ...(s.dibatalkan > 0
+      ? [
+          {
+            name: "Dibatalkan",
+            value: s.dibatalkan,
+            from: STAT_THEME.dibatalkan.from,
+            to: STAT_THEME.dibatalkan.to,
+            gradId: "pieDibatalkan",
+          },
+        ]
+      : []),
   ];
   const monthly = monthlyProgress(items);
 

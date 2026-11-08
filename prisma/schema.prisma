@@ -14,6 +14,7 @@ enum StatusPoin {
   SUDAH_DILAKSANAKAN
   DALAM_PROSES
   BELUM_DILAKSANAKAN
+  DIBATALKAN
 }
 
 enum PenanggungJawab {

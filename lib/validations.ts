@@ -13,7 +13,7 @@ export const beritaSchema=z.object({
 export const poinSchema=z.object({
   detailPoin:z.string().trim().min(10,"Detail poin minimal 10 karakter"),
   targetPelaksanaan:z.string().refine(v=>!Number.isNaN(Date.parse(v)),"Target tidak valid"),
-  status:z.enum(["SUDAH_DILAKSANAKAN","DALAM_PROSES","BELUM_DILAKSANAKAN"]),
+  status:z.enum(["SUDAH_DILAKSANAKAN","DALAM_PROSES","BELUM_DILAKSANAKAN","DIBATALKAN"]),
   penanggungJawab:z.enum(["KEUANGAN_UMUM_LOGISTIK","TEKNIS_PEMILU_HUKUM","PERENCANAAN_DATA_INFORMASI","PARTISIPASI_MASYARAKAT_SDM"]),
   indikatorOutput:z.string().trim().min(5,"Indikator output wajib diisi"),
   catatan:z.string().trim().max(2000).optional().or(z.literal(""))

@@ -1,5 +1,5 @@
 export type Role = "INTERNAL" | "ADMIN";
-export type StatusPoin = "SUDAH_DILAKSANAKAN" | "DALAM_PROSES" | "BELUM_DILAKSANAKAN";
+export type StatusPoin = "SUDAH_DILAKSANAKAN" | "DALAM_PROSES" | "BELUM_DILAKSANAKAN" | "DIBATALKAN";
 export type PenanggungJawab = "KEUANGAN_UMUM_LOGISTIK" | "TEKNIS_PEMILU_HUKUM" | "PERENCANAAN_DATA_INFORMASI" | "PARTISIPASI_MASYARAKAT_SDM";
 
 export interface EvidenceData {

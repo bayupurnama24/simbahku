@@ -14,6 +14,10 @@ const statusConfig: Record<StatusPoin, { badge: string; dot: string }> = {
     badge: "bg-gradient-to-r from-red-50 to-rose-50 text-red-800 border-red-300/70 shadow-xs",
     dot: "bg-red-500 shadow-[0_0_6px_rgba(239,68,68,0.5)]",
   },
+  DIBATALKAN: {
+    badge: "bg-gradient-to-r from-gray-100 to-slate-100 text-gray-700 border-gray-300/70 shadow-xs",
+    dot: "bg-gray-400 shadow-[0_0_6px_rgba(156,163,175,0.5)]",
+  },
 };
 
 export function StatusBadge({ status }: { status: StatusPoin }) {

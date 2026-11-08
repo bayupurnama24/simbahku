@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "StatusPoin" ADD VALUE 'DIBATALKAN';

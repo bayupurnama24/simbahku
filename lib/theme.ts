@@ -59,6 +59,12 @@ export const STAT_THEME = {
     to: "#800000",
     rgb: "220, 38, 38",
   },
+  dibatalkan: {
+    color: "#64748b",
+    from: "#94a3b8",
+    to: "#64748b",
+    rgb: "100, 116, 139",
+  },
   evidence: {
     color: "#0284c7",
     from: "#0284c7",

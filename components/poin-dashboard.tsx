@@ -90,6 +90,7 @@ export function PoinDashboard({ items, mode }: { items: BeritaAcaraData[]; mode:
     selesai: filtered.filter((x) => x.status === "SUDAH_DILAKSANAKAN").length,
     proses: filtered.filter((x) => x.status === "DALAM_PROSES").length,
     belum: filtered.filter((x) => x.status === "BELUM_DILAKSANAKAN").length,
+    dibatalkan: filtered.filter((x) => x.status === "DIBATALKAN").length,
     evidence: filtered.reduce((sum, x) => sum + (x.evidence?.length || 0), 0),
     perhatian: filtered.filter((x) => Boolean(deadlineState(x))).length,
   };
